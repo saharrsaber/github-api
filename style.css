@@ -4,11 +4,22 @@
 body {
   font-family: Tahoma, Arial;
 }
+
 .repos-container {
   width: 850px;
-  background-color: #f6f6f6;
   margin: auto;
 }
+
+.repos-container .get-repos,
+.repos-container .get-repos input,
+.repos-container .get-repos .get-button,
+.repos-container .user_data,
+.repos-container .show-data,
+.repos-container .show-data .repo-box,
+.repos-container .error {
+  border-radius: 10px;
+}
+
 .repos-container .get-repos,
 .repos-container .error {
   padding: 20px;
@@ -42,6 +53,18 @@ body {
   padding: 20px;
   background-color: #e0e0e0;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.repos-container .user_data .user-followers {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
+.repos-container .user_data .user-repos-num {
+  position: absolute;
+  right: 25px;
+  top: 52px;
 }
 
 .repos-container .user_data div {

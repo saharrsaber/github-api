@@ -34,12 +34,8 @@ getReposBtn.addEventListener("click", function () {
       <div class="user-location">Location: <span>${
         data.location === null ? "No data" : data.location
       }</span></div>
-      <div class="user-followers">#followers: <span>${
-        data.followers
-      }</span></div>
-      <div class="user-repos-num">#repos: <span>${
-        data.public_repos
-      }</span></div>
+      <div class="user-followers"><span>${data.followers}</span> followers</div>
+      <div class="user-repos-num"><span>${data.public_repos}</span> repos</div>
       `
           );
           return fetch(`https://api.github.com/users/${username.value}/repos`);
@@ -50,7 +46,6 @@ getReposBtn.addEventListener("click", function () {
         if (data.message == "Not Found")
           displayError(`This username ${username.value} is not found`);
         else {
-          console.log(data);
           data.forEach((repo) => {
             repo.name;
 
