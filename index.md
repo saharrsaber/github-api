@@ -15,7 +15,7 @@
       <div class="user_data hidden"></div>
       <div class="show-data hidden"></div>
       <div class="error hidden"></div>
-    </div>
+    </div> 
 
     <script src="script.js"></script>
 
