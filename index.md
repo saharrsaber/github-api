@@ -17,7 +17,7 @@
       <div class="error hidden"></div>
     </div> 
 
-    <script src="script.js"></script>
+    <script src="final_script.js"></script>
 
   </body>
 </html>
