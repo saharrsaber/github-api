@@ -1,0 +1,15 @@
+body{
+  background-color: #a4b0be;
+}
+.repo-box a{
+  color: #17a2b8;
+}
+.repo-box .star{
+  color:gold
+}
+.repo-box .lang{
+  color:#28a745;
+}
+.hidden{
+  display: none!important;
+}

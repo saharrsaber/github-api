@@ -54,17 +54,21 @@ const fetchAllData = async function(username){
     userSection.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="user-name">Name: <span>${
-      data[0].name === null ? "No data" : data[0].name
-      }</span></div>
-      <div class="user-email">Email: <span>${
-      data[0].email === null ? "No data" : data[0].email
-      }</span></div>
-      <div class="user-location">Location: <span>${
-      data[0].location === null ? "No data" : data[0].location
-      }</span></div>
-      <div class="user-followers"><span>${data[0].followers}</span> followers</div>
-      <div class="user-repos-num"><span>${data[0].public_repos}</span> repos</div>
+      <div class="card text-white bg-info mb-3">
+      <div class="card-header display-4">${
+        data[0].name === null ? "No data" : data[0].name
+        }</div>
+      <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-envelope pr-1"></i> ${
+          data[0].email === null ? "No data" : data[0].email
+          }</h5>
+        <h5 class="card-title"> <i class="fas fa-map-marker-alt px-1"></i>  ${
+          data[0].location === null ? "No data" : data[0].location
+          }</h5>
+        <h5 class="card-title"><i class="fas fa-users"></i> ${data[0].followers} followers</h5>
+        <h5 class="card-title"><i class="fas fa-box-open"></i> ${data[0].public_repos} repos</h5>
+      </div>
+    </div>
       `
       );
     // repo section 
@@ -73,12 +77,25 @@ const fetchAllData = async function(username){
       reposSection.insertAdjacentHTML(
         "beforeend",
         `
-      <div class = "repo-box">${repo.name}
-          <a href =  ${repo.html_url} target= "_blank">Visit</a>
-          <span>Stars: ${repo.stargazers_count}</span>
-          <span class="languague">${
-            repo.language == null ? "Not Detected" : repo.language
-          }</span>
+      <div class="card bg-light repo-box mb-3">
+        <div class="card-body">
+          <h5 class="card-title d-inline">${repo.name}</h5>
+          
+          <div class="pt-2">
+
+            <a class="px-4" href=${repo.html_url}  target= "_blank" ><i class="fas fa-link"></i> Visit</a>
+            
+            <div class="px-4 d-inline">
+              <span class="star"><i class="fas fa-star"></i></span>  ${repo.stargazers_count}
+            </div>
+            
+            <div class="px-4 d-inline">
+              <span class="lang"><i class="fas fa-pen"></i></span> ${
+                repo.language == null ? "Not Detected" : repo.language
+              }
+            </div>
+          </div>
+        </div>
       </div>
       `
       );
@@ -87,3 +104,9 @@ const fetchAllData = async function(username){
     console.error(err);
   }  
 }
+username.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    getReposBtn.click();
+  }
+});
